@@ -1,0 +1,87 @@
+\documentclass{book}
+
+% Fonts and typography
+
+%% Typography
+\usepackage[no-math]{fontspec}
+\defaultfontfeatures{Mapping = tex-text, Scale = MatchLowercase}
+
+%% Fonts
+\setsansfont{Verdana}
+\setmainfont{TeX Gyre Pagella} % palatino equivalent
+
+%% Set Sans font in headings
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\color{Blue}}
+
+% Page
+
+%% Use full page in book style
+\usepackage{fullpage}
+
+%% Set line spacing
+\usepackage{setspace}
+\setstretch{1.2}
+
+%% Disable paragraph indentation
+\usepackage{parskip}
+
+% Colors
+
+\usepackage{xcolor}
+
+\definecolor{Blue}{HTML}{013E94}
+
+%% Start sections from new page
+\usepackage{titlesec}
+\let\stdsection\section
+\renewcommand\section{\newpage\stdsection}
+
+% Links
+
+%% Hyperref
+\usepackage[colorlinks, breaklinks, bookmarks, xetex]{hyperref}
+
+%% Don’t use Mono font for URLs
+\urlstyle{same}
+\hypersetup {
+    linkcolor = Blue,
+    citecolor = Blue,
+    filecolor = Blue,
+    urlcolor = Blue
+}
+
+% Images
+
+\usepackage{graphicx}
+
+
+% Pandoc hacks
+
+%% Normal enumerates processing
+\usepackage{enumerate}
+
+%% Disable section numbers
+\setcounter{secnumdepth}{0}
+
+
+\begin{document}
+
+  % Title page
+
+  \thispagestyle{empty}
+
+  \vspace*{\fill}
+    \begin{center}
+      \includegraphics[width=0.7\textwidth]{title}
+    \end{center}
+  \vspace*{\fill}
+
+  \newpage
+  \setcounter{page}{0}
+
+  % Book contents
+
+  $body$
+
+\end{document}
